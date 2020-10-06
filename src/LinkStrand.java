@@ -35,6 +35,10 @@ public class LinkStrand implements IDnaStrand {
         myFirst = new Node(source);
         myLast = myFirst;
         mySize = myFirst.info.length();
+        myAppends = 0;
+        myIndex = 0;
+        dex = 0;
+        list = myFirst;
     }
 
     @Override
