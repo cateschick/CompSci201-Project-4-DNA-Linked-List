@@ -13,10 +13,20 @@ public class LinkStrand implements IDnaStrand {
             info = s;
             next = null;
         }
+    }
     // declare private variables:
     private Node myFirst, myLast;
     private long mySize;
     private int myAppends;
+
+    // constructors set default to empty string and call initialize method
+    public LinkStrand() {
+        this("");
+    }
+
+    public LinkStrand(String s) {
+        initialize(s);
+    }
 
     // maintains class invariants when called
     // creates a single node when called
@@ -52,12 +62,11 @@ public class LinkStrand implements IDnaStrand {
         return mySize;
     }
 
+    // returns a LinkStrand object;
     @Override
     public IDnaStrand getInstance(String source) {
-        // returns a LinkStrand object;
-//        LinkStrand ret = new LinkStrand(source);
-//        return ret;
-        return null;
+        LinkStrand ret = new LinkStrand(source);
+        return ret;
     }
 
     // Adds one new node to the end of the internal LinkedList;
@@ -142,6 +151,5 @@ public class LinkStrand implements IDnaStrand {
             }
         }
         return list.info.charAt(dex);
-    }
     }
     }
