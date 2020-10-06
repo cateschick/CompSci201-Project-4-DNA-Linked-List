@@ -4,6 +4,15 @@
 // Filename: LinkStrand.java
 
 public class LinkStrand implements IDnaStrand {
+    private class Node {
+        // construct a Node Class
+        String info;
+        Node next;
+
+        public Node(String s) {
+            info = s;
+            next = null;
+        }
     // declare private variables:
     private Node myFirst, myLast;
     private long mySize;
@@ -134,15 +143,5 @@ public class LinkStrand implements IDnaStrand {
         }
         return list.info.charAt(dex);
     }
-
-    private class Node {
-        // construct a Node Class
-        String info;
-        Node next;
-
-        public Node(String s) {
-            info = s;
-            next = null;
-        }
     }
     }
