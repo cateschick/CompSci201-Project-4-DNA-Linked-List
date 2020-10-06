@@ -99,6 +99,15 @@ public class LinkStrand implements IDnaStrand {
         return myAppends;
     }
 
+    // helper function for reverse
+    // puts a node at the front of the linked list
+    private void reverseHelper(String dna){
+        Node n = new Node(dna);
+        this.mySize += n.info.length();
+        n.next = myFirst;
+        myFirst = n;
+    }
+
     // creates a new LinkStrand object that is the reverse
     // DOES NOT MUTATE, returns a new strand
     @Override
@@ -112,11 +121,7 @@ public class LinkStrand implements IDnaStrand {
             StringBuilder rev = new StringBuilder(n.info);
             String s = rev.reverse().toString();
 
-            // append to the front of the linked list
-            Node node = new Node(s);
-            this.mySize += node.info.length();
-            node.next = myFirst;
-            myFirst = node;
+            strand.reverseHelper(s);
 
             // traverse through nodes
             n = n.next;
