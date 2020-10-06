@@ -109,12 +109,14 @@ public class LinkStrand implements IDnaStrand {
 
         while (n != null) {
             // create a StringBuilder object
-            StringBuilder reverse = new StringBuilder(n.info);
-            String s = reverse.reverse().toString();
+            StringBuilder rev = new StringBuilder(n.info);
+            String s = rev.reverse().toString();
 
+            // append to the front of the linked list
             Node node = new Node(s);
-            node.next = n;
-            n = node;
+            this.mySize += node.info.length();
+            node.next = myFirst;
+            myFirst = node;
 
             // traverse through nodes
             n = n.next;
